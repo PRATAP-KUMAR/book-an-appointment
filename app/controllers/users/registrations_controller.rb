@@ -1,22 +1,11 @@
-# frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
   # before_action :configure_sign_up_params, only: [:create], if: :devise_controller?
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-    # p "These are the parameters"
-    # p params[:username]
-    # @user = User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    super
-  end
 
   # POST /resource
-  def create
-    super
-  end
 
   # GET /resource/edit
   # def edit
@@ -44,19 +33,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def respond_with(_opts = {})
-    resource = User.create(username: params[:username], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+  def respond_with(_resource, _opts = {})
+    resource = User.create(username: params[:username],
+                           email: params[:email],
+                           password: params[:password],
+                           password_confirmation:
+      params[:password_confirmation])
     if resource.persisted?
       render json: {
-        status: {code: 200, message: 'Signed up successfully.'},
+        status: { code: 200, message: 'Signed up successfully.' },
         data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
       }, status: :ok
     else
       render json: {
-        status: {message: "User couldn't be created successfully. #{resource.errors.full_messages.to_sentence}"}
+        status: { message: "User couldn't be created successfully. #{resource.errors.full_messages.to_sentence}" }
       }, status: :unprocessable_entity
     end
-
   end
 
   # If you have extra params to permit, append them to the sanitizer.

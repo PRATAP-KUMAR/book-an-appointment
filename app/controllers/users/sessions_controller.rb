@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Users::SessionsController < Devise::SessionsController
   respond_to :json
   # before_action :configure_sign_in_params, only: [:create] if: :devise_controller?
@@ -7,7 +5,7 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   # def new
   #   super
-  
+
   # end
 
   # POST /resource/sign_in
@@ -21,17 +19,17 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   protected
-  
-  def respond_with(resource, _opts = {})
+
+  def respond_with(_resource, _opts = {})
     resource = User.find_by_email(params[:email])
     if resource
       render json: {
-        status: {code: 200, message: 'Logged in successfully.'},
+        status: { code: 200, message: 'Logged in successfully.' },
         data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
       }, status: :ok
     else
       render json: {
-        status: {code: 401, message: 'Could not find user'}
+        status: { code: 401, message: 'Could not find user' }
       }, status: :unprocessable_entity
     end
   end
@@ -45,7 +43,7 @@ class Users::SessionsController < Devise::SessionsController
     else
       render json: {
         status: 401,
-        message: "Could not find active session"
+        message: 'Could not find active session'
       }, status: :unauthorized
     end
   end
