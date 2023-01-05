@@ -1,35 +1,48 @@
-require "test_helper"
+require 'test_helper'
 
 class CarsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @car = cars(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get cars_url, as: :json
     assert_response :success
   end
 
-  test "should create car" do
-    assert_difference("Car.count") do
-      post cars_url, params: { car: { description: @car.description, image: @car.image, manufacturing_date: @car.manufacturing_date, model: @car.model, name: @car.name, reserved: @car.reserved, user_id: @car.user_id } }, as: :json
+  test 'should create car' do
+    assert_difference('Car.count') do
+      post cars_url,
+           params: { car: { description: @car.description,
+                            image: @car.image,
+                            manufacturing_date: @car.manufacturing_date,
+                            model: @car.model,
+                            name: @car.name,
+                            reserved: @car.reserved,
+                            user_id: @car.user_id } }, as: :json
     end
 
     assert_response :created
   end
 
-  test "should show car" do
+  test 'should show car' do
     get car_url(@car), as: :json
     assert_response :success
   end
 
-  test "should update car" do
-    patch car_url(@car), params: { car: { description: @car.description, image: @car.image, manufacturing_date: @car.manufacturing_date, model: @car.model, name: @car.name, reserved: @car.reserved, user_id: @car.user_id } }, as: :json
+  test 'should update car' do
+    patch car_url(@car),
+          params: { car: { description: @car.description,
+                           image: @car.image,
+                           manufacturing_date: @car.manufacturing_date,
+                           model: @car.model, name: @car.name,
+                           reserved: @car.reserved,
+                           user_id: @car.user_id } }, as: :json
     assert_response :success
   end
 
-  test "should destroy car" do
-    assert_difference("Car.count", -1) do
+  test 'should destroy car' do
+    assert_difference('Car.count', -1) do
       delete car_url(@car), as: :json
     end
 
