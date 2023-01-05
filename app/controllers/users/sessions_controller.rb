@@ -7,6 +7,7 @@ class Users::SessionsController < Devise::SessionsController
   # GET /resource/sign_in
   # def new
   #   super
+  
   # end
 
   # POST /resource/sign_in
@@ -22,10 +23,17 @@ class Users::SessionsController < Devise::SessionsController
   protected
   
   def respond_with(resource, _opts = {})
-    render json: {
-      status: {code: 200, message: 'Logged in successfully.'},
-      data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
+    resource = User.find_by_email(params[:email])
+    if resource
+      render json: {
+        status: {code: 200, message: 'Logged in successfully.'},
+        data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
       }, status: :ok
+    else
+      render json: {
+        status: {code: 401, message: 'Could not find user'}
+      }, status: :unprocessable_entity
+    end
   end
 
   def respond_to_on_destroy
