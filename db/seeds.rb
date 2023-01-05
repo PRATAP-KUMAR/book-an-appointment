@@ -4,7 +4,9 @@
 # Examples:
 #
 
-users = User.create([{username: 'raga'}, {username: 'conor'}]) 
+users = User.create([
+    {username: 'raga', email: 'raga@example.com', password: 'password'},
+    {username: 'conor', email: 'conor@gmail.com', password: 'password'}]) 
 
 cars = Car.create([
     {
