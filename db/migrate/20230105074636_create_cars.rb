@@ -6,7 +6,7 @@ class CreateCars < ActiveRecord::Migration[7.0]
       t.text :description
       t.text :model
       t.date :manufacturing_date
-      t.boolean :reserved
+      t.boolean :reserved, default: false
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_074747) do
     t.text "description"
     t.text "model"
     t.date "manufacturing_date"
-    t.boolean "reserved"
+    t.boolean "reserved", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
