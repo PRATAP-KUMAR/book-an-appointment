@@ -4,9 +4,14 @@
 # Examples:
 #
 
+['user', 'admin'].each do |role|
+    Role.find_or_create_by({name: role})
+end
+
 users = User.create([
-    {username: 'raga', email: 'raga@example.com', password: 'password'},
-    {username: 'conor', email: 'conor@gmail.com', password: 'password'}]) 
+    {username: 'raga', email: 'raga@example.com', password: 'password', role: Role.find_by_name('admin')},
+    {username: 'conor', email: 'conor@gmail.com', password: 'password', role: Role.find_by_name('admin')}
+    ]) 
 
 cars = Car.create([
     {
@@ -67,4 +72,3 @@ cars = Car.create([
 ]) 
 
 Reservation.create([ { user: users[0], car: cars[0], reserve_date: '2023-01-01' } ])
-
