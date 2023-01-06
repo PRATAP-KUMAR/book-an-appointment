@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   belongs_to :role
-  before_create :set_default_role
+  after_initialize :set_default_role!
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   private
 
-  def set_default_role
-    self.role ||= Role.find_by_name('registered')
+  def set_default_role!
+    self.role ||= Role.find_by_name('user')
   end
 end
