@@ -3,24 +3,16 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create] if: :devise_controller?
 
   # GET /resource/sign_in
-  def new
-    super
-    # p 'Inside New'
-    # p current_user
-  end
 
   # POST /resource/sign_in
-  def create
-    super
-  end
 
-    # http://127.0.0.1:3000/login method: POST
-    # {
-    #   "user": {
-    #     "email": "raga@example.com",
-    #     "password": "password"
-    #   }
-    # }
+  # http://127.0.0.1:3000/login method: POST
+  # {
+  #   "user": {
+  #     "email": "raga@example.com",
+  #     "password": "password"
+  #   }
+  # }
 
   # DELETE /resource/sign_out
   # def destroy
