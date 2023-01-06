@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :reservations
 
   private
+
   def set_default_role
     self.role ||= Role.find_by_name('registered')
   end
