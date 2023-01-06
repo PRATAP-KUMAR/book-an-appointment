@@ -3,15 +3,16 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create] if: :devise_controller?
 
   # GET /resource/sign_in
-  # def new
-  #   super
-
-  # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+
+  # http://127.0.0.1:3000/login method: POST
+  # {
+  #   "user": {
+  #     "email": "raga@example.com",
+  #     "password": "password"
+  #   }
+  # }
 
   # DELETE /resource/sign_out
   # def destroy
@@ -20,8 +21,7 @@ class Users::SessionsController < Devise::SessionsController
 
   protected
 
-  def respond_with(_resource, _opts = {})
-    resource = User.find_by_email(params[:email])
+  def respond_with(resource, _opts = {})
     if resource
       render json: {
         status: { code: 200, message: 'Logged in successfully.' },

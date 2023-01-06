@@ -31,14 +31,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  # http://127.0.0.1:3000/signup method: POST
+  # {
+  #   "user": {
+  #     "username": "ninah",
+  #     "email": "ninah@email.com",
+  #     "password": "password",
+  #     "password_confirmation": "password"
+  #   }
+  # }
+
   protected
 
-  def respond_with(_resource, _opts = {})
-    resource = User.create(username: params[:username],
-                           email: params[:email],
-                           password: params[:password],
-                           password_confirmation:
-      params[:password_confirmation])
+  def respond_with(resource, _opts = {})
+    # resource = User.create(username: params[:username],
+    #                        email: params[:email],
+    #                        password: params[:password],
+    #                        password_confirmation:
+    #   params[:password_confirmation])
     if resource.persisted?
       render json: {
         status: { code: 200, message: 'Signed up successfully.' },
