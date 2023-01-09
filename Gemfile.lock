@@ -70,6 +70,9 @@ GEM
     bootsnap (1.15.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bullet (7.0.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     date (3.3.3)
@@ -168,6 +171,7 @@ GEM
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.7)
       tzinfo (>= 1.0.0)
+    uniform_notifier (1.16.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     websocket-driver (0.7.5)
@@ -181,6 +185,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bullet
   debug
   devise
   jsonapi-serializer
