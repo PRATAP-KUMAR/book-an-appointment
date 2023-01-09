@@ -22,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
   protected
 
   def respond_with(resource, _opts = {})
-    if resource
+    if resource.id
       render json: {
         status: { code: 200, message: 'Logged in successfully.' },
         data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
