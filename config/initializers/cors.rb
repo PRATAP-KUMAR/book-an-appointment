@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "example.com"
+    origins "*", 'http://127.0.0.1:3000/', 'https://final-capstone-api.onrender.com/'
 
     resource "*",
       headers: :any,
