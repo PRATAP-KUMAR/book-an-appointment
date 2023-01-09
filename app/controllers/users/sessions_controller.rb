@@ -1,8 +1,14 @@
+require 'json'
 class Users::SessionsController < Devise::SessionsController
   respond_to :json
   # before_action :configure_sign_in_params, only: [:create] if: :devise_controller?
 
   # GET /resource/sign_in
+  def create
+    # p "Inside create"
+    # p params[:user]
+    super
+  end
 
   # POST /resource/sign_in
 
