@@ -35,4 +35,9 @@ RSpec.describe Car, type: :model do
     expect(car).to_not be_valid
   end
 
+  it 'is not valid without a user' do
+    car = Car.new(user: nil)
+    expect(car).to_not be_valid
+  end
+
 end
