@@ -45,4 +45,9 @@ RSpec.describe Car, type: :model do
     expect(car).to_not be_valid
   end
 
+  it 'is not valid without a description' do
+    car = Car.new(description: nil)
+    expect(car).to_not be_valid
+  end
+
 end
