@@ -40,4 +40,9 @@ RSpec.describe Car, type: :model do
     expect(car).to_not be_valid
   end
 
+  it 'is not valid without a model' do
+    car = Car.new(model: nil)
+    expect(car).to_not be_valid
+  end
+
 end
