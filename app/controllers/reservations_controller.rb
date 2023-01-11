@@ -3,9 +3,17 @@ class ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.includes([:car]).all
 
-    render json: @reservations
+    @reservations_new = @reservations.map do |r|
+      c = Car.find_by_id(r.car_id)
+      {
+        car: c,
+        reservation: r
+      }
+    end
+
+    render json: @reservations_new
   end
 
   # GET /reservations/1
