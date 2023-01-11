@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
       c = Car.find_by_id(r.car_id)
       {
         car: c,
-        reservation: r,
+        reservation: r
       }
     end
 
