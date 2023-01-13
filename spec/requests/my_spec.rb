@@ -1,9 +1,5 @@
 require 'swagger_helper'
 
-# RSpec.describe 'api/my', type: :request do
-# spec/requests/blogs_spec.rb
-# require 'swagger_helper'
-
 describe 'Cars API' do
   path '/cars' do
     post 'Creates a car' do
@@ -17,7 +13,6 @@ describe 'Cars API' do
           description: { type: :string },
           model: { type: :string },
           manufacturing_date: { type: :date }
-          #   reserved: { type: :boolean }
         },
         required: %w[name image description model manufacturing_date reserved]
       }
@@ -91,4 +86,3 @@ describe 'Cars API' do
     end
   end
 end
-# end
