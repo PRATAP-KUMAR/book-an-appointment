@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.4'
+# ruby '3.0.4'
 
 gem 'devise'
+
+gem 'rswag'
 
 gem 'jsonapi-serializer'
 
