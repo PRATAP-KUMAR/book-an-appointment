@@ -151,9 +151,9 @@ rspec
 
 👤 **Kwaleyela Musilizo Ikafa**
 
-- GitHub: [@githubhandle](https://github.com/https://github.com/Kwaleyela-Ikafa)
-- Twitter: [@twitterhandle](https://twitter.com/)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/)
+- GitHub: [@Kwaleyela-Ikafa](https://github.com/Kwaleyela-Ikafa)
+- Twitter: [@K_Ikafa](https://twitter.com/K_Ikafa)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kwaleyela-musilizo-ikafa/)
 
 👤 **PRATAP PANABAKA**
 
