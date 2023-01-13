@@ -163,9 +163,9 @@ rspec
 
 👤 **William Raga**
 
-- GitHub: [@githubhandle](https://github.com/https://github.com/itsmraga-hub)
-- Twitter: [@twitterhandle](https://twitter.com/)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/)
+- GitHub: [William Raga](https://github.com/itsmraga-hub)
+- Twitter: [William Raga](https://twitter.com/itsmraga)
+- LinkedIn: [William Raga](https://linkedin.com/in/itsmraga)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
