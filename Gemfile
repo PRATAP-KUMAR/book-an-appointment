@@ -5,6 +5,8 @@ ruby '3.1.2'
 
 gem 'devise'
 
+gem 'rswag'
+
 gem 'jsonapi-serializer'
 
 gem 'bullet', group: 'development'

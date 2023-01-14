@@ -1,0 +1,113 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/cars":
+    post:
+      summary: Creates a car
+      tags:
+      - Cars
+      parameters: []
+      responses:
+        '201':
+          description: Car created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                description:
+                  type: string
+                model:
+                  type: string
+                manufacturing_date:
+                  type: date
+              required:
+              - name
+              - image
+              - description
+              - model
+              - manufacturing_date
+              - reserved
+  "/cars/{id}":
+    get:
+      summary: Retrieves a car
+      tags:
+      - Cars
+      - Another Tag
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: car found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  image:
+                    type: string
+                  description:
+                    type: string
+                  model:
+                    type: string
+                  manufacturing_date:
+                    type: date
+                required:
+                - id
+                - name
+                - image
+                - description
+                - model
+                - manufacturing_date
+                - reserved
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  image:
+                    type: string
+                  description:
+                    type: string
+                  model:
+                    type: string
+                  manufacturing_date:
+                    type: date
+                required:
+                - id
+                - name
+                - image
+                - description
+                - model
+                - manufacturing_date
+                - reserved
+        '404':
+          description: car not found
+        '406':
+          description: unsupported accept header
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
