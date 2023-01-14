@@ -3,7 +3,8 @@ class ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.includes([:car]).all
+    @user = User.find_by_id(params[:user_id])
+    @reservations = Reservation.where(user: @user).all
 
     @reservations_new = @reservations.map do |r|
       c = Car.find_by_id(r.car_id)
@@ -23,10 +24,14 @@ class ReservationsController < ApplicationController
 
   # POST /reservations
   def create
+    p "Paramasrere"
+    p params
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      # render json: @reservation, status: :created, location: @reservation
+      render json: @reservation, status: :created
+
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
@@ -47,6 +52,18 @@ class ReservationsController < ApplicationController
   end
 
   private
+
+  def respond_with(resource, _opts = {})
+    if resource.persisted?
+      render json: {
+        status: { code: 200, message: 'Create reservation successfully.' }
+      }, status: :ok
+    else
+      render json: {
+        status: { message: "Reservation couldn't be created successfully. #{resource.errors.full_messages.to_sentence}" }
+      }, status: :unprocessable_entity
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_reservation
