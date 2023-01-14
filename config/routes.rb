@@ -7,9 +7,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :reservations
-  resources :cars
-  resources :users
+
+  # resources :cars, only: [:index, :show, :create]
+  resources :users do
+    resources :reservations, only: [:index, :create]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
