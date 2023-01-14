@@ -24,8 +24,6 @@ class ReservationsController < ApplicationController
 
   # POST /reservations
   def create
-    p "Paramasrere"
-    p params
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
