@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  # resources :cars, only: [:index, :show, :create]
+  resources :cars, only: [:index, :show, :create]
   resources :users do
     resources :reservations, only: [:index, :create]
   end
