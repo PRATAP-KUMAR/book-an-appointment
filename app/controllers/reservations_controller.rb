@@ -51,18 +51,6 @@ class ReservationsController < ApplicationController
 
   private
 
-  def respond_with(resource, _opts = {})
-    if resource.persisted?
-      render json: {
-        status: { code: 200, message: 'Create reservation successfully.' }
-      }, status: :ok
-    else
-      render json: {
-        status: { message: "Reservation couldn't be created successfully. #{resource.errors.full_messages.to_sentence}" }
-      }, status: :unprocessable_entity
-    end
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_reservation
     @reservation = Reservation.find(params[:id])
