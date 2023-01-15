@@ -3,7 +3,8 @@ class ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.includes([:car]).all
+    @user = User.find_by_id(params[:user_id])
+    @reservations = Reservation.where(user: @user).all
 
     @reservations_new = @reservations.map do |r|
       c = Car.find_by_id(r.car_id)
@@ -26,7 +27,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      render json: @reservation, status: :created, location: @reservation
+      # render json: @reservation, status: :created, location: @reservation
+      render json: @reservation, status: :created
+
     else
       render json: @reservation.errors, status: :unprocessable_entity
     end
