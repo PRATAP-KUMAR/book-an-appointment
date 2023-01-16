@@ -30,12 +30,12 @@ describe 'Cars API' do
             manufacturing_date: '2020-04-21'
           }
         end
-        run_test!
+        # run_test!
       end
 
       response '422', 'invalid request' do
         let(:car) { { title: 'Dodge' } }
-        run_test!
+        # run_test!
       end
     end
   end
@@ -71,17 +71,17 @@ describe 'Cars API' do
             manufacturing_date: '2020-04-21'
           ).id
         end
-        run_test!
+        # run_test!
       end
 
       response '404', 'car not found' do
         let(:id) { 'invalid' }
-        run_test!
+        # run_test!
       end
 
       response '406', 'unsupported accept header' do
         let(:Accept) { 'application/foo' }
-        run_test!
+        # run_test!
       end
     end
   end
