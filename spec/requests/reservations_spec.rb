@@ -6,7 +6,7 @@ RSpec.describe 'Reservations', type: :request do
       Role.find_or_create_by({ name: role })
     end
     User.create(username: 'User', email: 'Email@example.com', password: 'Password',
-                       password_confirmation: 'password', role: Role.find_by_name('admin'))
+                password_confirmation: 'password', role: Role.find_by_name('admin'))
   end
 
   it 'Get reservations' do
