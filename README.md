@@ -12,6 +12,12 @@
 
 <!-- TABLE OF CONTENTS -->
 
+# 📗 Kanban board
+- [Link to Kanabn board](https://github.com/users/PRATAP-KUMAR/projects/3/views/1)
+- [Link to screenshot of the initial state of Kanban board](https://user-images.githubusercontent.com/40719899/210572649-69ff848f-bb24-47f6-8754-8d0b4c6b6fc3.png)
+- [Link to Kanban board GIF](https://user-images.githubusercontent.com/40719899/210572777-c98cb0bd-0ce5-4606-b4c1-7ec6dffeccf6.gif)
+- We are a team of 5 members in this final capstone project
+
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
